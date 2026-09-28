@@ -1,0 +1,48 @@
+.custom-input {
+  position: relative;
+  $root: &;
+
+  &__field {
+    border: 1px solid transparent;
+    background-color: rgba($color-jaguar, .05);
+    border-radius: 200px;
+    font-size: 17px;
+    line-height: 1.5;
+    padding: 15px 20px;
+    width: 100%;
+    outline: none;
+    transition: border-color $transition-300, transform $transition-300;
+
+    &::placeholder {
+      color: rgba($color-jaguar, 0.3);
+    }
+
+    &:hover {
+      border-color: #888080;
+      transform: scale(1.02);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #008380;
+      outline-offset: 2px;
+    }
+  }
+  
+  &__error {
+    display: none;
+    margin: 5px 0 0 20px;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #d32f2f;
+  }
+
+  &--error {
+    #{$root}__field {
+      border-color: #d32f2f;
+    }
+
+    #{$root}__error {
+      display: block;
+    }
+  }
+}
