@@ -310,3 +310,10 @@
     }
   }
 }
+
+/* Keep the gallery dimensions independent of the selected image. */
+.unique__gallery-pic { flex: 0 1 923px; min-width: 0; width: 923px; max-width: 100%; aspect-ratio: 923 / 640; overflow: hidden; }
+.unique__gallery-pic picture { display: block; width: 100%; height: 100%; }
+.unique__gallery-pic .unique__img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1023px) { .unique__gallery-pic { flex: none; width: 100%; } }
+@media (max-width: 767px) { .unique__gallery-pic { aspect-ratio: 360 / 265; } }

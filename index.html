@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="preload" href="fonts/Arsenal-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="fonts/PTSans-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=gallery-1">
   <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
   <link rel="shortcut icon" href="favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="manifest" href="site.webmanifest" />
   <title>Тихий зелёный элитный архитектурный проект на Тишинке. - Тишинский бульвар</title>
 </head>
 
@@ -19,7 +19,7 @@
 <header class="header">
   <div class="container">
     <div class="header__wrapper">
-      <button class="header__burger btn" type="button" aria-label="Открыть меню">
+      <button class="header__burger btn" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-menu">
         <svg class="header__burger-icon" width="40" height="15" aria-hidden="true">
           <use xlink:href="images/sprite.svg#icon-burger"></use>
         </svg>
@@ -30,7 +30,7 @@
         </svg>
       </a>
       <div class="header__user">
-        <a class="header__link btn" href="#">Выбрать квартиру</a>
+        <a class="header__link btn" href="#apartments">Выбрать квартиру</a>
         <a class="header__phone" href="tel:+74951829699" aria-label="Позвонить по телефону +7 495 182-96-99">
           <span class="header__phone-text">+7 (495) 182-96-99</span>
           <svg class="header__phone-icon" width="24" height="24" aria-hidden="true">
@@ -40,6 +40,13 @@
       </div>
     </div>
   </div>
+  <nav class="site-menu" id="site-menu" aria-label="Разделы сайта" hidden>
+    <a href="#about">О проекте</a>
+    <a href="#courtyards">Двор-парк</a>
+    <a href="#architecture">Архитектура</a>
+    <a href="#children">Для детей</a>
+    <a href="#apartments">Квартиры и заявка</a>
+  </nav>
 </header>
 <main>
   <section class="hero">
@@ -62,7 +69,7 @@
     </div>
   </section>
 
-  <section class="advantages">
+  <section class="advantages" id="about">
     <div class="container">
       <h2 class="visually-hidden">Преимущества ЖК Тишинский</h2>
       <p class="advantages__description">Элитный квартал «Тишинский бульвар» с просторным зелёным двором-парком располагается в тихом историческом центре Москвы, в окружении уютных улочек с их камерной спокойной атмосферой. Он сочетает в себе привилегии жизни в центре города, красоту рукотворного парка и продуманное содержание</p>
@@ -104,8 +111,8 @@
         <p class="respectability__description">Тишинка — статусный район в центре Москвы, сохранивший атмосферу исторического места и богатое архитектурное наследие. Вокруг тихие старомосковские переулки с их уникальным архитектурным наследием. Рядом расположены городские точки притяжения и гастрономические локации.</p>
         <div class="respectability__video-box">
           <video class="respectability__video" src="video/video-preview.mp4" width="1280" height="670" autoplay
-                 loop></video>
-          <button class="respectability__video-play btn" type="button">
+                 loop muted playsinline aria-hidden="true" tabindex="-1"></video>
+          <button class="respectability__video-play btn" type="button" aria-haspopup="dialog" aria-controls="project-video">
             <svg class="respectability__video-icon" width="20" height="25" aria-hidden="true">
               <use xlink:href="images/sprite.svg#icon-play"></use>
             </svg>
@@ -155,7 +162,7 @@
     </div>
   </section>
 
-  <section class="unique">
+  <section class="unique" id="courtyards">
     <div class="container">
       <div class="unique__wrapper">
         <h2 class="unique__title">Уникальный бульвар в&nbsp;огромном дворе-парке </h2>
@@ -171,13 +178,13 @@
             <picture>
               <source media="(max-width: 767px)"
                       srcset="images/unique/unique-1-mobile.jpg 1x, images/unique/unique-1-mobile@2x.jpg 2x">
-              <img class="unique__img" src="images/unique/unique-1.jpg"
+              <img id="courtyard-image" class="unique__img" src="images/unique/unique-1.jpg"
                     srcset="images/unique/unique-1@2x.jpg 2x" width="923" height="640" loading="lazy" alt="Изображение парка">
             </picture>
           </div>
           <ul class="unique__gallery-list">
             <li class="unique__gallery-item">
-              <button class="unique__gallery-button unique__gallery-button--active btn" type="button">
+              <button class="unique__gallery-button unique__gallery-button--active btn" type="button" data-courtyard="rowan" aria-pressed="true" aria-controls="courtyard-image">
                 <svg class="unique__gallery-icon" width="135" height="132" aria-hidden="true">
                   <use xlink:href="images/sprite.svg#icon-unique-1"></use>
                 </svg>
@@ -185,7 +192,7 @@
               </button>
             </li>
             <li class="unique__gallery-item">
-              <button class="unique__gallery-button unique__gallery-button--yellow btn" type="button">
+              <button class="unique__gallery-button unique__gallery-button--yellow btn" type="button" data-courtyard="maple" aria-pressed="false" aria-controls="courtyard-image">
                 <svg class="unique__gallery-icon" width="135" height="132" aria-hidden="true">
                   <use xlink:href="images/sprite.svg#icon-unique-2"></use>
                 </svg>
@@ -193,7 +200,7 @@
               </button>
             </li>
             <li class="unique__gallery-item">
-              <button class="unique__gallery-button unique__gallery-button--green btn" type="button">
+              <button class="unique__gallery-button unique__gallery-button--green btn" type="button" data-courtyard="willow" aria-pressed="false" aria-controls="courtyard-image">
                 <svg class="unique__gallery-icon" width="135" height="132" aria-hidden="true">
                   <use xlink:href="images/sprite.svg#icon-unique-3"></use>
                 </svg>
@@ -213,7 +220,7 @@
     </div>
   </section>
 
-  <section class="architecture">
+  <section class="architecture" id="architecture">
     <svg class="architecture__decor" width="824" height="802" aria-hidden="true">
       <use xlink:href="images/sprite.svg#icon-decor-2"></use>
     </svg>
@@ -250,7 +257,7 @@
     </div>
   </section>
 
-  <section class="children-info">
+  <section class="children-info" id="children">
     <div class="container">
       <div class="children-info__wrapper">
         <h2 class="children-info__title">На радость детям</h2>
@@ -267,7 +274,7 @@
     </picture>
   </section>
 
-  <section class="elite-promo">
+  <section class="elite-promo" id="apartments">
     <div class="container">
       <div class="elite-promo__wrapper">
         <h2 class="elite-promo__title">Элитные квартиры редкого формата</h2>
@@ -286,22 +293,24 @@
           </div>
         </div>
         <h2 class="elite-promo__subtitle">Оставьте заявку</h2>
-        <form action="#" method="post" class="elite-promo__form">
+        <form action="#" method="post" class="elite-promo__form" novalidate>
           <div class="elite-promo__box">
             <div class="custom-input elite-promo__input">
-              <input type="text" class="custom-input__field" aria-label="Введите свое имя" placeholder="Ваше имя" required>
-                <span class="custom-input__error">Введите ваше имя</span>
+              <input id="request-name" name="name" autocomplete="given-name" aria-describedby="request-name-error" type="text" class="custom-input__field" aria-label="Введите свое имя" placeholder="Ваше имя" required>
+                <span id="request-name-error" class="custom-input__error">Введите ваше имя</span>
             </div>
             <div class="custom-input elite-promo__input">
-              <input type="tel" class="custom-input__field" aria-label="Введите свой телефон" placeholder="Телефон" required>
-                <span class="custom-input__error">Введите ваш телефон</span>
+              <input id="request-phone" name="phone" autocomplete="tel" aria-describedby="request-phone-error" type="tel" class="custom-input__field" aria-label="Введите свой телефон" placeholder="Телефон" required>
+                <span id="request-phone-error" class="custom-input__error">Введите ваш телефон</span>
             </div>
             <button class="elite-promo__btn btn" type="submit">Отправить</button>
           </div>
           <div class="custom-checkbox elite-promo__checkbox">
-            <input class="visually-hidden custom-checkbox__field" type="checkbox" id="agree" name="form-agree">
+            <input class="visually-hidden custom-checkbox__field" type="checkbox" id="agree" name="form-agree" required aria-describedby="request-agree-error">
             <label class="custom-checkbox__label" for="agree">Соглашаюсь на обработку персональных данных</label>
+            <span id="request-agree-error" class="request-agree-error" hidden>Подтвердите согласие на обработку персональных данных</span>
           </div>
+          <p class="request-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -439,5 +448,19 @@
     </div>
   </div>
 </footer>
+  <script src="js/menu.js" defer></script>
+  <script src="js/courtyards.js" defer></script>
+  <script src="js/request-form.js" defer></script>
+  <dialog class="video-dialog" id="project-video" aria-labelledby="project-video-title">
+    <div class="video-dialog__header">
+      <h2 id="project-video-title">Тишинский бульвар — видео</h2>
+      <button class="video-dialog__close" type="button" aria-label="Закрыть видео" autofocus>×</button>
+    </div>
+    <video class="video-dialog__player" controls playsinline preload="none" aria-label="Видео о Тишинском бульваре">
+      <source src="video/video-preview.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </dialog>
+  <script src="js/video.js" defer></script>
 </body>
 </html>

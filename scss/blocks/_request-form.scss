@@ -1,0 +1,30 @@
+
+.request-agree-error { display: block; margin-top: 8px; color: #d32f2f; font-size: 14px; line-height: 1.4; }
+.request-agree-error[hidden] { display: none; }
+.request-status { margin: 16px 0 0; color: #213f3b; font-size: 16px; line-height: 1.5; }
+.request-status:empty { display: none; }
+
+/* Reserve error space so validation does not move the agreement. */
+.elite-promo__checkbox {
+  flex-direction: column;
+  align-items: center;
+}
+.request-agree-error,
+.request-agree-error[hidden] {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  min-height: 2.8em;
+  text-align: center;
+}
+.request-agree-error[hidden] { visibility: hidden; }
+.elite-promo__input .custom-input__error {
+  display: block;
+  min-height: 2.4em;
+  visibility: hidden;
+}
+.elite-promo__input.custom-input--error .custom-input__error {
+  visibility: visible;
+}
+
+.elite-promo__box { align-items: start; }
